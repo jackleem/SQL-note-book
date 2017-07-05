@@ -1,0 +1,15 @@
+SQL TOP function in different database
+
+SQL server
+SELECT TOP number|percent column_name(s)
+FROM table_name
+
+MySQL
+SELECT column_name(s) 
+FROM table_name
+LIMIT number
+
+Oracle
+SELECT column_name(s)
+FROM table_name
+WHERE ROWNUM <= number
