@@ -46,4 +46,40 @@ Test	add1	5.000	20170630	20170706
 INNER JOIN:
 Test	add1	5.000	20170630	20170706
 
+FULL JOIN:
+IF use MYSQL, u will find no FULL JOIN supported, use UNION to accomplish full join, RIGHT JOIN UNION LEFT JOIN:
+SQL:
+SELECT
+	people.peoName,
+	package.pkgName,
+	package.price,
+	relation.effTime,
+	relation.expTime
+FROM
+	(
+		people
+		LEFT JOIN relation ON relation.userId = people.peoId
+	)
+LEFT JOIN package ON relation.pkgId = package.pkgId
+UNION ALL
+SELECT
+	people.peoName,
+	package.pkgName,
+	package.price,
+	relation.effTime,
+	relation.expTime
+FROM
+	(
+		people
+		RIGHT JOIN relation ON relation.userId = people.peoId
+	)
+RIGHT JOIN package ON relation.pkgId = package.pkgId
+
+Result:
+Test	add1	5.000	20170630	20170706
+Max			20170101	20190202
+Test				
+	base	10.000	20170705	20170731
+Test	add1	5.000	20170630	20170706
+
 
